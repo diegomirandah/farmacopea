@@ -1,0 +1,97 @@
+.container{
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+  background-color: #fff;
+}
+.container-navbar, .container-header{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+  background-color: #fff;
+}
+
+.contenido-list-container{
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.table-usuarios{
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.table-comentarios{
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.table-micuenta{
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.table-cambios{
+  max-height: 100vh;
+  overflow-y: auto;
+}
+.modal-cambios{
+  max-height: 90vh;
+  overflow-y: auto;
+}
+#root{
+  /*background: url('./assets/images/bg2.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;*/
+  min-height: 100vh;
+  /*background: rgb(16,9,126);
+  background: linear-gradient(210deg, rgba(16,9,126,1) 10%, rgba(25,25,179,0.742734593837535) 60%, rgba(0,212,255,1) 100%);*/
+}
+.container-fluid{
+  background: transparent !important;
+}
+a{
+  color: #000 !important;
+}
+li.nav-link > a {
+  color: #bbbbbb !important;
+}
+a{
+  text-decoration: none !important;
+}
+
+.text-white > a {
+  color: #fff !important;
+}
+.bg-secundario{
+  background-color: #002a56 !important;
+}
+.bg-primario{
+  background-color: #0055ad !important;
+}
+@media (max-width: 992px){
+  .dropdown-menu{
+    background-color: transparent !important;
+    border: none !important;
+  }
+  li.dropdown-item > a {
+    color: #bbbbbb !important;
+  }
+}
+
+.navbar-light .navbar-toggler {
+  width: 50%;
+  border-color: #bbbbbb !important;
+}
+.nav-link{
+  color: #bbbbbb !important;
+  font-weight: 700;
+  transition: .3s all;
+}
+.nav-link:hover{
+  color: snow !important;
+}
+.text-color{
+  color: #bbbbbb !important;
+}
+.btn-outline-primary{
+  color: #bbbbbb !important;
+  border-color: #bbbbbb !important;
+}

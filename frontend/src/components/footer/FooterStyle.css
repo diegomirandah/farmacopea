@@ -1,0 +1,6 @@
+.footer-links > div > ul > li > a, .footer-links{
+    color: #ccc !important;
+}
+.footer-links > div > ul > li {
+    margin-bottom: 7px;
+}

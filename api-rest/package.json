@@ -1,0 +1,29 @@
+{
+  "name": "farmacopea-chilena",
+  "version": "1.0.0",
+  "description": "API Rest para sistema en línea de acceso Farmacopea Chilena",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.owc.cl/farmacopea-chilena/api-rest"
+  },
+  "author": "Hugo Mancilla",
+  "license": "GNU",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.4",
+    "express-jwt": "^5.3.3",
+    "ftp": "^0.3.10",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.17.1",
+    "nodemailer": "^6.4.11",
+    "randomstring": "^1.1.5"
+  }
+}

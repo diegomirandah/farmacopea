@@ -1,0 +1,86 @@
+version: '3'
+services:
+  nodejs:
+    build:
+      context: ./api-rest/
+    image: farmacopea/nodejs
+    depends_on:
+      - mysql
+      - apache
+    networks:
+      - frontend
+      - backend
+    environment:
+      - MYSQL_HOST=mysql-app
+      - MYSQL_USER=farmacopea
+      - MYSQL_PASS=123
+      - MYSQL_DB=farmacopeadb
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_USER=flack1994@gmail.com
+      - SMTP_PASS=hmanci94
+      - SMTP_SECURE=false
+      - UPLOADS_FOLDER=/var/www/html
+      - SECRET_KEY=4l9uN4114v3s3Er37A
+    ports:
+      - '30001:4556'
+    volumes:
+      - ./uploads/:/var/www/html
+    container_name: nodejs-app
+  reactjs:
+    build:
+      context: ./frontend/
+    image: farmacopea/reactjs
+    depends_on:
+      - nodejs
+      - apache
+    networks:
+      - frontend
+      - backend
+    environment: 
+      - API_URL=http://localhost:30001
+      - UPLOADS_URL=http://localhost:9000
+    ports:
+      - '5500:3000'
+    container_name: reactjs-app
+    stdin_open: true
+  apache:
+    image: php:5.6-apache
+    ports:
+      - 9000:80
+    networks:
+      - backend
+      - frontend 
+    container_name: apache-app
+    volumes:
+      - ./uploads/:/var/www/html
+  mysql:
+    image: mysql:5.7
+    networks:
+      - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=farmacopea
+      - MYSQL_PASSWORD=123
+      - MYSQL_DATABASE=farmacopeadb
+    volumes:
+      - ./database/:/var/lib/mysql
+      - ./api-rest/database:/tmp/database
+    container_name: mysql-app
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.7
+    depends_on:
+      - mysql
+    networks:
+      - backend
+    ports:
+      - '30002:80'
+    environment:
+      - PMA_HOST=mysql-app
+      - PMA_PORT=3306
+    volumes:
+      - /sessions
+    container_name: phpmyadmin-app
+networks:
+  frontend:
+  backend:
