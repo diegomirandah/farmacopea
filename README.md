@@ -12,7 +12,7 @@ Debe tener instalado y configurado las siguientes dependencias en la versión in
 Para comprobar que las dependencias se encuentren correctamente funcionando, puede consultar la versión de estas mediante los comandos
 `docker --version` y `docker-compose --version`
 
-##### Configuración
+##### Configuración opcional
 
 Para poder recuperar la contraseña, es necesario configurar un servidor de correos mediante SMTP. Para esto es necesario configurar los siguientes parámetros desde el archivo `docker-compose.yml`:
 
@@ -23,7 +23,7 @@ Para poder recuperar la contraseña, es necesario configurar un servidor de corr
 - SMTP_PASS: contraseña de la cuenta de correo.
 ```
 
-##### Instalación
+##### Ejecución
 
 Para ejecutar la aplicación, esta se puede compilar y posteriormente levantar con el siguiente comando:
 
