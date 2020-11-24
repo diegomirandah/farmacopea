@@ -17,8 +17,8 @@ services:
       - MYSQL_DB=farmacopeadb
       - SMTP_HOST=smtp.gmail.com
       - SMTP_PORT=587
-      - SMTP_USER=flack1994@gmail.com
-      - SMTP_PASS=hmanci94
+      - SMTP_USER=
+      - SMTP_PASS=
       - SMTP_SECURE=false
       - UPLOADS_FOLDER=/var/www/html
       - SECRET_KEY=4l9uN4114v3s3Er37A
