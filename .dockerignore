@@ -1,0 +1,6 @@
+./api-rest/node_modules
+./api-rest/misc
+./frontend/node_modules
+./frontend/misc
+.git
+.gitignore
