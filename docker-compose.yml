@@ -41,13 +41,12 @@ services:
       - frontend
       - backend
     environment: 
-      VIRTUAL_HOST: localhost
+      VIRTUAL_HOST: farmacopea.cl
       API_URL: nodejs:30001
       UPLOADS_URL: nodejs:9000
-    ports:
-      - 80:3000
+    expose:
+      - 80
     container_name: reactjs-app
-    stdin_open: true
   apache:
     image: php:5.6-apache
     ports:
