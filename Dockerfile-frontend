@@ -4,11 +4,11 @@ WORKDIR /app
 
 COPY ./frontend/package*.json ./
 
-RUN npm install
+RUN npm install --silent
 
 COPY ./frontend ./
 
-RUN npm run build
+RUN npm run --silent build
 # ------------------------------------------------------
 # Production Build
 # ------------------------------------------------------
