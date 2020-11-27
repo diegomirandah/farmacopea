@@ -41,7 +41,7 @@ services:
       - frontend
       - backend
     environment: 
-      VIRTUAL_HOST: farmacopea.cl
+      VIRTUAL_HOST: localhost
       API_URL: nodejs:30001
       UPLOADS_URL: nodejs:9000
     expose:
