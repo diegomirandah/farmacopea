@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nodejs:
+  backendapp:
     build:
       context: .
       dockerfile: Dockerfile-backend
@@ -8,13 +8,13 @@ services:
     restart: always
     depends_on:
       - mysql
-      - apache
     networks:
       - backend
       - frontend
-    ports:
-      - 30001:30001
+    expose:
+      - 30001
     environment:
+      VIRTUAL_HOST: localhost/services/m
       APP_PORT: 30001
       MYSQL_HOST: mysql-app
       MYSQL_USER: farmacopea
@@ -33,29 +33,21 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-frontend
+      args:
+        - REACT_APP_SERVICES_HOST=/services/m
     image: farmacopea/reactjs
     depends_on:
-      - nodejs
-      - apache
+      - backendapp
     networks:
       - frontend
       - backend
     environment: 
-      VIRTUAL_HOST: localhost
-      API_URL: nodejs:30001
-      UPLOADS_URL: nodejs:9000
+      VIRTUAL_HOST: farmacopea.informatica.uv.cl
     expose:
       - 80
-    container_name: reactjs-app
-  apache:
-    image: php:5.6-apache
-    ports:
-      - 9000:9000
-    networks:
-      - frontend 
-    container_name: apache-app
     volumes:
       - ./uploads/:/var/www/html
+    container_name: reactjs-app
   mysql:
     image: mysql:5.7
     networks:

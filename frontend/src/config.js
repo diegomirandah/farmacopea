@@ -2,8 +2,8 @@ import SessionService from './services/SessionService';
 const sessionService = new SessionService();
 
 const config = {
-    apiUrl: process.env.API_URL || 'http://localhost:30001',
-    uploadsPath: process.env.UPLOADS_URL || 'http://localhost:9000',
+    apiUrl: process.env.REACT_APP_SERVICES_HOST,
+    uploadsPath: '/uploads/images',
     axios: {
         headers: {
             "Accept":"application/json",
