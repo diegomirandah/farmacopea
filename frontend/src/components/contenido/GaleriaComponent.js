@@ -30,10 +30,6 @@ function GaleriaComponent(props) {
           src={config.uploadsPath + '/' + imagen.ima_nombre}
           alt="First slide"
         />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
       </Carousel.Item>  
     
     ))}
