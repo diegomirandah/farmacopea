@@ -4,6 +4,7 @@ import ComentarioModel from '../../models/ComentarioModel';
 import { Spinner, Table } from 'react-bootstrap';
 import ModalVerComentarioComponent from './ModalVerComentarioComponent';
 import ModalEliminarComentarioComponent from './ModalEliminarComentarioComponent';
+import ContenidoModel from '../../models/ContenidoModel';
 
 const comentariosService = new ComentariosService();
 function ComentariosListComponent(props) {
@@ -23,10 +24,11 @@ function ComentariosListComponent(props) {
           
           res.data.forEach((com, index) => {
                 let comentario = new ComentarioModel(com.comentario.com_id, new Date(com.comentario.com_fecha_creacion).toLocaleString('es-CL'), com.comentario.com_comentario, com.comentario.com_estado, com.comentario.usr_id, com.comentario.cont_id);
-                
+                let contenido = new ContenidoModel(null, null, com.contenido.cont_nombre, null, com.contenido.cont_tipo);
                 comentariosTable.push(<tr key={com.comentario.com_id}>
                         <td><input onClick={seleccionarFila} disabled={estadoMarcado} index={index} type="checkbox" className="checkbox-comentarios" /></td>
                         <td className="text-truncate" style={{maxWidth: '150px'}}><ModalVerComentarioComponent checked={comentariosSeleccionados[index]} com={com} /></td>
+                        <td>{contenido.cont_nombre}</td>
                         <td>{comentario.com_fecha_creacion}</td>
                         <td><ModalEliminarComentarioComponent com_id={com.comentario.com_id}/></td>
                 </tr>);
@@ -127,7 +129,7 @@ function ComentariosListComponent(props) {
                         <tr>
                           <td><input type="checkbox" readOnly onClick={marcarTodos} checked={estadoMarcado}/></td>
                           <th>Comentario {estadoMarcado}</th>
-                          
+                          <th>Contenido</th>
                           <th>Fecha comentario</th>
                           <th>Eliminar</th>
                         </tr>
