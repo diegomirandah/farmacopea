@@ -93,12 +93,15 @@ module.exports = class {
 	consultarTiposContenidosPorPlan(plan_id){
 		return new Promise( function(resolve, reject){
             let tipos = [];
-            mysql.query('SELECT * FROM contenidos c, contenidos_planes cp WHERE c.cont_id = cp.cont_id AND cp.plan_id = ? GROUP BY c.cont_tipo ORDER BY c.cont_nombre ASC', [plan_id], (err, rows) => {
+            mysql.query('SELECT * FROM contenidos c, contenidos_planes cp WHERE c.cont_id = cp.cont_id AND cp.plan_id = ? ORDER BY c.cont_nombre ASC', [plan_id], (err, rows) => {
 				if(!err && rows.length > 0){
 					rows.map(row => {
 						tipos.push(row.cont_tipo);
 					});
-					resolve(tipos);
+					const tip = tipos.filter((data,index)=>{
+						return tipos.indexOf(data) === index;
+					})
+					resolve(tip);
 				}else{
 					reject();
 				}
