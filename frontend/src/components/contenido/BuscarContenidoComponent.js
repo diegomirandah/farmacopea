@@ -51,7 +51,7 @@ function BuscarContenidoComponent(props) {
           <div key={contenido.cont_id} className="row mt-3 justify-content-center">
               <div className="col-12">
                   <p className="my-0 ">
-                      <Link to={{pathname: '/contenidos/ver/'+contenido.cont_nombre, cont_id: contenido.cont_id}}><b>{contenido.cont_nombre}</b></Link> en categoría de {contenido.cont_tipo}. <small><i>Publicado el {contenido.cont_fecha_creacion.toLocaleString("es-CL")}</i></small>
+                      <Link to={{pathname: '/contenidos/ver/'+contenido.cont_nombre + '/' + contenido.cont_id , cont_id: contenido.cont_id}}><b>{contenido.cont_nombre}</b></Link> en categoría de {contenido.cont_tipo}. <small><i>Publicado el {contenido.cont_fecha_creacion.toLocaleString("es-CL")}</i></small>
                   </p>
               </div>
           </div>
