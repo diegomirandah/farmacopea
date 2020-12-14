@@ -141,7 +141,7 @@ module.exports = {
             const resp = await consultarTiposContenidosPorPlan(plan_id, {contenidosRepo});
             res.json(reply.ok(200,resp));
         }catch(err){
-            res.json(reply.ok(201,null,'No existen contenidos en este plan.'));
+            res.json(reply.ok(400,err,'No existen contenidos en el plan ' + req.params.plan_id));
         }
     },
 
