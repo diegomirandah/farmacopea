@@ -16,7 +16,7 @@ services:
     environment:
       VIRTUAL_HOST: localhost/services/m
       APP_PORT: 30001
-      MYSQL_HOST: mysql-app
+      MYSQL_HOST: mysql-farmacopea
       MYSQL_USER: farmacopea
       MYSQL_PASS: 123
       MYSQL_DB: farmacopeadb
@@ -28,7 +28,7 @@ services:
       SECRET_KEY: 4l9uN4114v3s3Er37A
     volumes:
       - ./uploads/:/var/www/html
-    container_name: nodejs-app
+    container_name: backend-farmacopea
   reactjs:
     build:
       context: .
@@ -47,7 +47,7 @@ services:
       - 80
     volumes:
       - ./uploads/:/var/www/html
-    container_name: reactjs-app
+    container_name: frontend-farmacopea
   mysql:
     image: mysql:5.7
     networks:
@@ -60,7 +60,7 @@ services:
     volumes:
       - ./database/:/var/lib/mysql
       - ./api-rest/database:/tmp/database
-    container_name: mysql-app
+    container_name: mysql-farmacopea
 networks:
   frontend:
     external:
