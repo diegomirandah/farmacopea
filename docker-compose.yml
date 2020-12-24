@@ -41,7 +41,7 @@ services:
       - frontend
       - backend
     environment: 
-      VIRTUAL_HOST: farmacopea3.localhost
+      VIRTUAL_HOST: farmacopea.informatica.uv.cl
     expose:
       - 80
     volumes:
