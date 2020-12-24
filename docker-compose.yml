@@ -12,10 +12,9 @@ services:
       - backend
       - frontend
     expose:
-      - 30001
+      - 3000
     environment:
-      VIRTUAL_HOST: localhost/services/m
-      APP_PORT: 30001
+      APP_PORT: 3000
       MYSQL_HOST: mysql-farmacopea
       MYSQL_USER: farmacopea
       MYSQL_PASS: 123
@@ -34,7 +33,7 @@ services:
       context: .
       dockerfile: Dockerfile-frontend
       args:
-        - REACT_APP_SERVICES_HOST=/services/m
+        - REACT_APP_SERVICES_HOST=/api
     image: farmacopea/reactjs
     depends_on:
       - backendapp
@@ -42,7 +41,7 @@ services:
       - frontend
       - backend
     environment: 
-      VIRTUAL_HOST: farmacopea.informatica.uv.cl
+      VIRTUAL_HOST: farmacopea3.localhost
     expose:
       - 80
     volumes:

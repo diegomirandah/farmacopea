@@ -1,6 +1,6 @@
 FROM node:latest as builder
 
-ARG REACT_APP_SERVICES_HOST=/services/m
+ARG REACT_APP_SERVICES_HOST=/api
 
 WORKDIR /app
 

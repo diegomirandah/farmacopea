@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(expressJwt({secret: config.secret}).unless({path: ["/services/m/login/iniciarsesion" , "/services/m/login/registrarse" , /^\/services\/m\/planes\// , "/services/m/login/recuperarcontrasena"]}));
+app.use(expressJwt({secret: config.secret}).unless({path: ["/api/login/iniciarsesion" , "/api/login/registrarse" , /^\/api\/planes\// , "/api/login/recuperarcontrasena"]}));
 
 app.use(function(err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
@@ -48,13 +48,13 @@ var licenciasRouter = require('./routes/licenciasRouter');
 var comprasRouter = require('./routes/comprasRouter');
 var imagenesRouter = require('./routes/imagenesRouter');
 
-app.use('/services/m/usuarios', usuariosRouter);
-app.use('/services/m/planes', planesRouter);
-app.use('/services/m/login', loginRouter);
-app.use('/services/m/contenidos', contenidosRouter);
-app.use('/services/m/comentarios', comentariosRouter);
-app.use('/services/m/licencias', licenciasRouter);
-app.use('/services/m/compras', comprasRouter);
-app.use('/services/m/imagenes', imagenesRouter);
+app.use('/api/usuarios', usuariosRouter);
+app.use('/api/planes', planesRouter);
+app.use('/api/login', loginRouter);
+app.use('/api/contenidos', contenidosRouter);
+app.use('/api/comentarios', comentariosRouter);
+app.use('/api/licencias', licenciasRouter);
+app.use('/api/compras', comprasRouter);
+app.use('/api/imagenes', imagenesRouter);
 
 module.exports = app;

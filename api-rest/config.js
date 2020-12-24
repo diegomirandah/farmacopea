@@ -1,7 +1,7 @@
 'use strict';
 var config = {
     app: {
-        port: process.env.APP_PORT || 30001
+        port: process.env.APP_PORT || 3000
     },
     uploadsFolder: process.env.UPLOADS_FOLDER,
     secret: process.env.SECRET_KEY,
